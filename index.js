@@ -93,7 +93,7 @@ const validators = {
  *    schema object. It cannot be already wrapped in `Joi.object(validationsObject)`.
  * @param {JoiOptionsObject} joiOptions
  */
-function setupValidateProvidedData(validationsObj, joiOptions) {
+function setupValidateProvidedData(validationsObj, joiOptions, translator) {
   if (!validationsObj || typeof validationsObj !== 'object') {
     throw new Error('The `validationsObj` argument is required.');
   }
@@ -104,7 +104,7 @@ function setupValidateProvidedData(validationsObj, joiOptions) {
     const patchAttrs = pick(validationsObj, Object.keys(context.data));
     const patchSchema = Joi.object(patchAttrs);
 
-    const validateHook = validators.form(patchSchema, joiOptions, translations);
+    const validateHook = validators.form(patchSchema, joiOptions, translator);
 
     return validateHook(context);
   };
