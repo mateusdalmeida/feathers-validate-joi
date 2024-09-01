@@ -104,7 +104,7 @@ function setupValidateProvidedData(validationsObj, joiOptions) {
     const patchAttrs = pick(validationsObj, Object.keys(context.data));
     const patchSchema = Joi.object(patchAttrs);
 
-    const validateHook = validators.form(patchSchema, joiOptions);
+    const validateHook = validators.form(patchSchema, joiOptions, translations);
 
     return validateHook(context);
   };

@@ -27,7 +27,7 @@ declare namespace FeathersValidateJoi {
     [key: string]: (context?: any) => string | undefined;
   }
   
-  export function validateProvidedData (validationsObj: RawSchema, joiOptions?: ValidateJoiOptions): Hook
+  export function validateProvidedData(validationsObj: RawSchema, joiOptions?: ValidateJoiOptions, translations?: Translation): Hook
   export function form (joiSchema: Joi.AnySchema, joiOptions?: ValidateJoiOptions, translations?: Translation, ifTest?: boolean): Hook
   export function mongoose (joiSchema: Joi.AnySchema, joiOptions?: ValidateJoiOptions, translations?: Translation, ifTest?: boolean): Hook
 }
